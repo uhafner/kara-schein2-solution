@@ -1,0 +1,43 @@
+= Elektronische Scheinprüfung - Softwareentwicklung I
+:icons: font
+Prof. Dr. Ullrich Hafner <ullrich.hafner@hm.edu>
+:toc-title: Inhaltsverzeichnis
+:chapter-label:
+:chapter-refsig: Kapitel
+:section-label: Abschnitt
+:section-refsig: Abschnitt
+
+:xrefstyle: short
+:!sectnums:
+:partnums:
+ifndef::includedir[:includedir: ./]
+ifndef::imagesdir[:imagesdir: ./]
+ifndef::plantUMLDir[:plantUMLDir: .plantuml/]
+:figure-caption: Abbildung
+:table-caption: Tabelle
+
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+
+[hinweise]
+== Allgemeine Hinweise bzw. Tipps
+
+Das Live Programming findet mit den eigenen Laptops am 13. Januar von 11:45-12:45 im R1.007 statt. Elektronische Hilfsmittel sind neben dem eigenen Rechner keine erlaubt (keine Handys und Tablets). Denken Sie an ein Ladegerät für Laptop bzw. an ausreichend aufgeladene Batterien. Während der Prüfung werde ich die Ausweise von allen teilnehmenden Personen prüfen, halten Sie dazu bitte einen Lichtbildausweis und Ihren Studierendenausweis bereit. Diejenigen, die die erste Prüfung bestanden haben, können nicht an der Prüfung teilnehmen.
+
+Laden Sie Ihre Lösung erst am Ende der Prüfung in den https://classroom.github.com/a/TODO[GitHub Classroom Kara Schein] auf den eigenen `main` Branch hoch. Wenn beim Erstellen des GitHub Classrooms ein Fehler auftritt, können Sie das Ausgangsprojekt auch aus Moodle herunterladen. Wenn beim abschließendem Hochladen ein Fehler auftritt, warten Sie bitte, bis ich an Ihren Platz komme, um das Hochladen gemeinsam durchzuführen. Verlassen Sie nicht den Raum, bevor Ihre Lösung auch sicher in GitHub angekommen ist.
+
+Es gibt insgesamt 2 Aufgaben, jede der zwei Aufgaben wird mit 10 Punkten bewertet. Wenn Sie bei einer Aufgabe hängen, machen Sie mit der nächsten Aufgabe weiter und kommen Sie später zurück. Verteilen Sie die Arbeitszeit von 60 Minuten in etwa gleich auf die 2 Aufgaben.
+
+Wie bereits angekündigt, ist auch ein guter Programmierstil wichtig, daher können Sie jeweils bis zu 1 Punkt pro Aufgabe verlieren (10%), wenn Sie sich nicht an den Codingstyle von mir halten. Für diese Prüfung sind nur die Resultate aus der CheckStyle Analyse relevant, die Sie auch in IntelliJ sehen können (1 Minuspunkt ab 5 Warnungen). Ein automatisches Prüfen der Lösungen über die GitHub Funktionalität (Autograding) steht Ihnen während der Prüfung nicht zur Verfügung. Zum sicheren Bestehen der Prüfung reicht es, 10 von 20 Punkten zu erreichen.
+
+Die Aufgaben müssen alleine und ohne fremde Hilfe gelöst werden. Sie dürfen zur Bearbeitung die Vorlesungsunterlagen zurate ziehen und auch Internetquellen aufrufen. Chats, Mails und andere Kommunikationsmittel sind nicht erlaubt. Beachten Sie, dass Sie keine Quelltexte aus fremden Quellen in Ihre Arbeit integrieren dürfen, das wäre sonst ein Plagiat. Alle Lösungen werden zudem nach der Prüfung in ein Plagiat-Prüfprogramm eingespielt: sollten dabei Duplikate entdeckt werden, werden die Arbeiten aller Beteiligten (also auch die Person, die das Original verfasst hat) mit einer 5 benotet.
+
+Beachten Sie wieder, dass in allen Aufgaben beliebige Welten (gemäß der Aufgabenstellung) zulässig sind. D.h. eine Aufgabe ist nur teilweise gelöst, wenn Ihr Programm nur für einige der abgebildeten Varianten funktioniert. Die vorhandenen Tests prüfen einige der möglichen Szenarien, sind also ein guter Indikator, wie gut Ihre Lösung ist. Achtung: die Testergebnisse lassen sich aber nicht direkt in Punkte umrechnen. Manche Tests sind jetzt schon grün, auch wenn Sie noch gar nicht begonnen haben. Diese Tests müssen abschließend immer noch grün bleiben. Bei meiner Korrektur im Nachgang können außerdem zusätzliche Tests zum Einsatz kommen, um die korrekte Lösung zu bewerten. Für alle Tests gilt: entscheidend für den Erfolg eines Tests ist die korrekte Darstellung der erwarteten Welt. Die Position von Kara ist nicht relevant.
+
+Die Voraussetzungen sind auch wie bisher für alle Aufgaben: Instanzvariablen, Container und Utility Methoden aus `java.util` sind **nicht erlaubt**. Nur lokale Variablen (und ggf. Methodenparameter) sind zur Speicherung von Werten und Arrays erlaubt. Zweidimensionale Arrays dürfen verwendet werden, bringen bei den Aufgaben allerdings keinen Mehrwert. Strings und character Variablen sind auch nicht erlaubt, diese kommen erst zu einem späteren Verlauf unserer Vorlesung.

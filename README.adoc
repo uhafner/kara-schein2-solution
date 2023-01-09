@@ -1,0 +1,113 @@
+= Softwareentwicklung I - Prof. Dr. Ullrich Hafner
+:icons: font
+Prof. Dr. Ullrich Hafner <ullrich.hafner@hm.edu>
+:toc-title: Inhaltsverzeichnis
+:chapter-label:
+:chapter-refsig: Kapitel
+:section-label: Abschnitt
+:section-refsig: Abschnitt
+
+:xrefstyle: short
+:sectnums:
+:partnums:
+ifndef::includedir[:includedir: ./]
+ifndef::imagesdir[:imagesdir: ./]
+ifndef::plantUMLDir[:plantUMLDir: .plantuml/]
+ifdef::env-github,env-browser[:relfilesuffix: .adoc]
+
+:figure-caption: Abbildung
+:table-caption: Tabelle
+
+== Aktuelle Aufgabenstellung
+
+Die aktuelle Aufgabenstellung befindet sich in link:src/main/asciidoc/assignment.adoc[einer eigenen Datei] innerhalb dieses Projekts. Das Format für die Aufgabenstellung ist https://docs.asciidoctor.org/asciidoc/latest/[AsciiDoc] (ebenso wie diese README Datei).
+
+== KaraLight
+
+Für die ersten Aufgabenblätter nutzen wir KaraLight. KaraLight ist eine Variante von https://www.swisseduc.ch/informatik/karatojava/[JavaKara], die der Kollege Bastian Katz in Java Swing umgesetzt hat. Dadurch erhalten wir einen einfachen Einstieg in die Programmierung mit Java. Der Marienkäfer Kara wird direkt in Java programmiert. Die Welt von JavaKara ist identisch mit der Welt von Kara. Man sieht also sofort, was die Programme machen.
+
+=== Öffnen der Projekte
+
+Zum Editieren und Starten Ihrer Programme müssen Sie immer ein von mir vorgefertigtes Projekt in der Entwicklungsumgebung IntelliJ öffnen. Dazu gibt es zwei Varianten:
+
+- Manuelles Entpacken: Dazu laden Sie das Projekt der jeweiligen Aufgabenstellung zunächst aus dem GitHub Classroom mit *Code->Download ZIP* in der GitHub Oberfläche herunter. Entpacken Sie dieses Projekt auf Ihrer Festplatte. Öffnen Sie das Projekt dann in IntelliJ mit *File->Open*.
+- Automatischer Import über den Classroom: Laden Sie das Projekt direkt in IntelliJ mit *File->New->Project From Version Control*. Geben Sie in der *URL* die URL Ihres GitHub Repositories an (nicht der Classroom, sondern das für Sie erzeugte Projekt) und starten Sie den Import mit *Clone*. Bei der Frage nach der Authentifizierung geben Sie *Token* an, und vergeben mit dem automatisch vordefinierten Dialog in GitHub ein entsprechendes Token. Denken Sie daran, als Laufzeit für das Token das Semesterende anzugeben.
+
+Wenn Sie das Projekt in IntelliJ geöffnet haben, finden Sie im Hauptordner dieses README. Die Aufgabenstellung zu jeder Abgabe befindet sich im Ordner `src/main/asciidoc/assignment.adoc`. Eine Abgabe besteht i.A. aus mehreren Aufgaben. Jede Aufgabe müssen Sie in einer eigenen Datei (d.h. Java Klasse) lösen. Diese Klassen sind fortlaufend nummeriert und beginnen mit `Assignment01`. Die Dateien habe ich schon für Sie angelegt, sodass Sie direkt starten können.
+
+=== Lösen und Starten der Aufgaben
+
+Technische gesehen, muss jede Aufgabe für KaraLight in einer eigenen Klasse gelöst werden, z.B. `Assignment01` (befindet sich in der Datei `Assignment01.java`). Diese Klasse hat bereits einen von mir vorgegebnen Rumpf, d.h. Sie können direkt mit Ihrer Lösung in der vordefinierten `main` Methode starten. Diese `main`  Methode muss immer bestehen bleiben, sie ist der jeweilige Ausgangspunkt für KaraLight. Diese Methode können Sie in der Entwicklungsumgebung starten, indem Sie den grünen *Run* Button drücken.
+
+In dieser `main` Methode wird direkt in Java programmiert, zusätzlich können Sie die folgenden Befehle verwenden, um Kara zu steuern:
+
+- `move()` -- Kara bewegt sich einen Schritt nach vorn. Das geht nur, wenn vor Kara kein Baum ist! Wenn vor Kara ein Pilz ist, schiebt Kara den Pilz eine Position weiter. (Das setzt wiederum voraus, dass der Platz vor dem Pilz frei ist.)
+- `turnRight()` bzw. `turnLeft()` -- Kara dreht sich nach rechts bzw. links.
+- `pickLeaf()` -- Kara nimmt ein Blatt auf. Das geht nur, wenn eins da ist!
+- `putLeaf()` -- Kara legt ein Blatt ab. Das geht nur, wenn keins da ist!
+- `say(...)` -- Kara gibt einen Text in einem Fenster aus.
+- `askNumber(...)` -- Kara fragt nach einer Zahl, die den Ablauf des Programms variabel gestaltet.
+
+Zusätzlich stehen Ihnen die folgenden Abfragen zur Verfügung:
+
+- `isMushroomInFront()` - liefert true, wenn vor Kara ein Pilz steht
+- `isTreeInFront()` - liefert true, wenn vor Kara ein Baum steht
+- `isTreeLeft()` - liefert true, wenn links von Kara ein Baum steht
+- `isTreeRight()` - liefert true, wenn rechts von Kara ein Baum steht
+- `isOnLeaf()` - liefert true, wenn Kara auf einem Blatt steht
+
+== Entwicklungsrichtlinien
+
+Neben den Programmierfertigkeiten ist auch das Schreiben von sauberen Code (https://clean-code-developer.de[Clean Code]) ein wichtiges Lernziel für dieses Semester. Im Praktikum verwenden wir deshalb https://github.com/uhafner/codingstyle[Kodierungsrichtlinien], die auf dem Java Standard aufbauen, und lediglich an einigen Stellen präziser gefasst sind. Diese Richtlinien werden bei der Abnahme mit überprüft und gehen in die Bewertung ein. Sie können testen, ob Ihr Quelltext gemäß der Regeln formatiert ist, indem Sie meiner Autograding Anleitung folgen. Dort ist beschrieben, wie Sie das Einhalten dieser Konventionen angezeigt bekommen.
+
+== Entwicklungsumgebung
+
+Für die praktischen Aufgaben wird ein Rechner mit folgenden Programmen benötigt:
+
+- *IntelliJ IDEA Ultimate 2022.2*:
+Die https://www.jetbrains.com/community/education/#students[Lizenz] gibt es für Studierende
+kostenlos. In den Rechnern der Hochschule ist ein Lizenzserver aktiv, der jeden Rechner mit einer gültigen Lizenz versorgt. Sinnvolle Plugins innerhalb dieser Entwicklungsumgebung sind u.a. AsciiDoc, CheckStyle, SpotBugs, PlantUml und ErrorProne
+(siehe meine https://github.com/uhafner/warnings-ng-plugin-devenv/blob/master/My-IntelliJ-Plugins.txt[Installationsliste]). Aktuell ist auf meinem Rechner die Version `2022.2.2` installiert.
+- *Java Development Kit 17 (LTS)*: Achtung, die Java Runtime Edition (JRE) reicht nicht! Laden Sie auch keine älteren oder neueren Major Versionen herunter, da sonst evtl. die Programme nicht korrekt funktionieren. Aktuell ist auf meinem Rechner die Version `17.0.4.1_1` installiert.
+- *Git 2.x*: Hier ist die Versionsnummer nicht so entscheidend, da wir in diesem Semester keine speziellen Möglichkeiten nutzen. Aktuell ist auf meinem Rechner die Version `2.37.3` installiert.
+
+Für die gängigen Betriebssysteme Windows, macOS und Linux sollte jeweils eine passende Version dieser Programme zu finden sein.
+
+Die Rechner der Hochschule sind bereits mit der richtigen Software vorkonfiguriert. Wenn Sie einen eigenen Rechner nutzen, kommen Sie damit -- falls möglich -- ins Praktikum, sodass wir die Installation gemeinsam durchführen können.
+
+Da wir werden Ihre Abgaben auch automatisiert bewerten, können Sie optional noch das Tool
+https://maven.apache.org/download.cgi[Maven] in der Version `3.8.6` installieren, um die automatisierte Bewertung vorab lokal auszuführen. Das ist optional und erfordert tiefere Rechnerkenntnisse. Sie haben alternativ immer die Möglichkeit, die Ergebnisse direkt im GitHub Classroom anzuschauen.
+
+=== Windows
+
+Laden Sie aktuelle Version von Java 17 von https://adoptium.net/de/[Adoptium] herunter (Achtung: keine neueren oder älteren Versionen nutzen) und https://javatutorial.net/set-java-home-windows-10[setzen Sie den Pfad], falls das nicht automatisch funktioniert hat.
+
+Optional: Maven können Sie als
+https://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.apache.org/dist/maven/maven-3/3.8.6/binaries/apache-maven-3.8.6-bin.zip[ZIP] herunterladen und an einem Pfad Ihrer Wahl entpacken. Dann müssen Sie auch hier noch den https://mkyong.com/maven/how-to-install-maven-in-windows/[Pfad setzen].
+
+=== macOS
+
+Unter macOS ist die Installation deutlich einfacher. Unter macOS installieren Sie das JDK mit https://brew.sh[Homebrew]. Wenn Sie Homebrew noch nicht nutzen, müssen Sie es zunächst installieren. Danach können Sie Software folgendermaßen über die Console installieren:
+[source,shell script]
+----
+brew install openjdk@17
+----
+
+Auch Maven und Git lassen sich so einfach installieren:
+
+[source,shell script]
+----
+brew install git maven
+----
+
+Aktualisieren der Pakete wird dann über das folgende Kommando erreicht:
+
+[source,shell script]
+----
+brew upgrade
+----
+
+=== Unix
+
+Unter Linux nutzen Sie den Paketmanager Ihrer Distribution. Wer Linux nutzt, wird wissen, wie das geht...
+

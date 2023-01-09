@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>codingstyle-pom</artifactId>
+    <groupId>edu.hm.hafner</groupId>
+    <version>3.8.0</version>
+  </parent>
+
+  <artifactId>karalight-schein2</artifactId>
+  <version>2022-W-SNAPSHOT</version>
+
+  <packaging>jar</packaging>
+
+  <name>KaraLight assignments</name>
+  <description>Provides a framework to compile and test KaraLight programs.
+    It also integrates Maven and several static analysis tools.
+  </description>
+
+  <licenses>
+    <license>
+      <name>MIT license</name>
+      <comments>All source code is copyrighted by Ullrich Hafner and licensed under the MIT license.</comments>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Ullrich Hafner</name>
+      <id>uhafner</id>
+      <email>ullrich.hafner@hm.edu</email>
+      <organization>Munich University of Applied Sciences</organization>
+      <organizationUrl>https://www.hm.edu/en/index.en.html</organizationUrl>
+    </developer>
+  </developers>
+
+  <url>http://www.cs.hm.edu/die_fakultaet/ansprechpartner/professoren/hafner/index.de.html</url>
+
+  <properties>
+    <java.version>17</java.version>
+    <source.encoding>UTF-8</source.encoding>
+    <project.build.sourceEncoding>${source.encoding}</project.build.sourceEncoding>
+
+    <module.name>${project.groupId}.karalight.assignment</module.name>
+
+    <karalight.version>0.7.3</karalight.version>
+
+    <!-- Maven Plug-ins Configuration -->
+    <asciidoctor.maven.plugin.version>2.2.2</asciidoctor.maven.plugin.version>
+    <asciidoctorj.version>2.5.6</asciidoctorj.version>
+    <asciidoctorj.diagram.version>2.2.3</asciidoctorj.diagram.version>
+    <asciidoctorj.pdf.version>2.3.0</asciidoctorj.pdf.version>
+    <jruby.version>9.2.7.0</jruby.version>
+    <buildhelper.maven.plugin>3.3.0</buildhelper.maven.plugin>
+
+    <!-- Maven Surefire ArgLine -->
+    <argLine>-Djava.util.logging.config.file=logging.properties</argLine>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>de.i8k</groupId>
+      <artifactId>karalight</artifactId>
+      <version>${karalight.version}</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.revapi</groupId>
+        <artifactId>revapi-maven-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.asciidoctor</groupId>
+        <artifactId>asciidoctor-maven-plugin</artifactId>
+        <version>${asciidoctor.maven.plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctorj</artifactId>
+            <version>${asciidoctorj.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctorj-diagram</artifactId>
+            <version>${asciidoctorj.diagram.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.asciidoctor</groupId>
+            <artifactId>asciidoctorj-pdf</artifactId>
+            <version>${asciidoctorj.pdf.version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <requires>
+            <require>asciidoctor-diagram</require>
+          </requires>
+          <logHandler>
+            <failIf>
+              <severity>ERROR</severity>
+            </failIf>
+          </logHandler>
+        </configuration>
+        <executions>
+          <execution>
+            <id>generate-html-doc</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>process-asciidoc</goal>
+            </goals>
+            <configuration>
+              <backend>html5</backend>
+              <attributes>
+                <imagesdir>./</imagesdir>
+                <icons>font</icons>
+                <sectanchors>true</sectanchors>
+                <idprefix/>
+                <idseparator>-</idseparator>
+              </attributes>
+            </configuration>
+          </execution>
+          <execution>
+            <id>generate-pdf-doc</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>process-asciidoc</goal>
+            </goals>
+            <configuration>
+              <backend>pdf</backend>
+              <attributes>
+                <imagesdir>./</imagesdir>
+                <icons>font</icons>
+                <sectanchors>true</sectanchors>
+                <idprefix/>
+                <idseparator>-</idseparator>
+              </attributes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+
+  </build>
+
+</project>
