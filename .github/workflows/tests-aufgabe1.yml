@@ -3,7 +3,7 @@ name: 'Tests Aufgabe 1'
 on:
   push:
     branches:
-      - grading
+      - main
   pull_request:
 
 jobs:

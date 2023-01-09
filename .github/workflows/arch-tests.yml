@@ -3,7 +3,7 @@ name: 'Run the architecture tests'
 on:
   push:
     branches:
-      - grading
+      - main
   pull_request:
 
 jobs:
