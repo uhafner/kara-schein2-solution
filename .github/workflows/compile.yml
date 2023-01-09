@@ -1,0 +1,28 @@
+name: 'Compile the sources'
+
+on:
+  push:
+    branches:
+      - grading
+  pull_request:
+
+jobs:
+  Build:
+    name: 'Build Log'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout assignment
+        uses: actions/checkout@v3.1.0
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          check-latest: false
+          cache: 'maven'
+      - name: Set up Maven
+        uses: stCarolas/setup-maven@v4.4
+        with:
+          maven-version: 3.8.6
+      - name: Build assignment and run tests
+        run: mvn -V -ntp clean compile
