@@ -1,18 +1,21 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Alle Testfälle" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-    <module name="karalight-assignment-3" />
+  <configuration default="false" name="Alle Tests" type="JUnit" factoryName="JUnit">
+    <module name="karalight-schein2" />
     <extension name="coverage" sample_coverage="false">
       <pattern>
-        <option name="PATTERN" value="edu.hm.hafner.*" />
+        <option name="PATTERN" value="edu.hm.hafner.kara.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
-    <useClassPathOnly />
-    <option name="PACKAGE_NAME" value="" />
+    <option name="PACKAGE_NAME" value="edu.hm.hafner.kara" />
     <option name="MAIN_CLASS_NAME" value="" />
     <option name="METHOD_NAME" value="" />
     <option name="TEST_OBJECT" value="package" />
+    <option name="VM_PARAMETERS" value="-ea  -Djava.awt.headless=true" />
     <option name="PARAMETERS" value="" />
+    <envs>
+      <env name="BROWSER" value="firefox" />
+    </envs>
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

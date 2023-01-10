@@ -1,11 +1,14 @@
 package edu.hm.hafner.kara;
 
+import com.tngtech.archunit.core.importer.ImportOption.DoNotIncludeTests;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
 
 import edu.hm.hafner.util.ArchitectureRules;
 
+import static com.tngtech.archunit.core.domain.JavaAccess.Predicates.*;
+import static com.tngtech.archunit.core.domain.properties.HasName.Predicates.*;
 import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.*;
 
 /**
@@ -14,7 +17,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.*;
  * @author Ullrich Hafner
  */
 @SuppressWarnings("hideutilityclassconstructor")
-@AnalyzeClasses(packages = "edu.hm.hafner.kara")
+@AnalyzeClasses(packages = "edu.hm.hafner.kara", importOptions = DoNotIncludeTests.class)
 class ArchitectureTest {
     /** Never create exception without any context. */
     @ArchTest
@@ -27,17 +30,14 @@ class ArchitectureTest {
             noClasses().should().dependOnClassesThat().resideInAnyPackage("java.util")
                     .because("Collections and similar advanced utilities will be part of software development 2.");
 
+    /** Strings are part of Software Engineering 2. */
     @ArchTest
-    static final ArchRule NO_PUBLIC_TEST_CLASSES = ArchitectureRules.NO_PUBLIC_TEST_CLASSES;
-
-    @ArchTest
-    static final ArchRule ONLY_PACKAGE_PRIVATE_TEST_METHODS = ArchitectureRules.ONLY_PACKAGE_PRIVATE_TEST_METHODS;
-
-    @ArchTest
-    static final ArchRule ONLY_PACKAGE_PRIVATE_ARCHITECTURE_TESTS = ArchitectureRules.ONLY_PACKAGE_PRIVATE_ARCHITECTURE_TESTS;
-
-    @ArchTest
-    static final ArchRule NO_TEST_API_CALLED = ArchitectureRules.NO_TEST_API_CALLED;
+    static final ArchRule NO_STRINGS_OR_WRAPPER_CLASSES_USED =
+            noClasses().should().callMethodWhere(
+                            targetOwner(name("java.lang.String"))
+                                    .or(targetOwner(name("java.lang.Integer")))
+                                    .or(targetOwner(name("java.lang.Long"))))
+                    .because("Strings and Wrapper Classes are part of software development 2.");
 
     @ArchTest
     static final ArchRule NO_FORBIDDEN_PACKAGE_ACCESSED = ArchitectureRules.NO_FORBIDDEN_PACKAGE_ACCESSED;

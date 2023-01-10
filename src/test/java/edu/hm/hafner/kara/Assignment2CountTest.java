@@ -41,7 +41,10 @@ class Assignment2CountTest extends AbstractKaraTest {
                 Arguments.of("2Count-L-0", 0),
                 Arguments.of("2Count-L-4", 4),
                 Arguments.of("2Count-L-20", 20),
-                Arguments.of("2Count-L-60", 60)
+                Arguments.of("2Count-L-60", 60),
+                Arguments.of("2Count-S-1", 1),
+                Arguments.of("2Count-S-2", 2),
+                Arguments.of("2Count-S-3", 3)
         );
     }
 }

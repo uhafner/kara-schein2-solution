@@ -29,44 +29,34 @@ public class Assignment2Count {
      * </ul>
      *
      * @param unused
-     *         Dieser Parameter wird von Kara nicht benutzt, muss aber bestehen bleiben, damit die KaraLight
-     *         Oberfläche in der Entwicklungsumgebung gestartet werden kann. Dieser Parameter ist auch erforderlich,
-     *         damit die automatisierte Auswertung der Ergebnisse funktioniert.
+     *         Dieser Parameter wird von Kara nicht benutzt, muss aber bestehen bleiben, damit die KaraLight Oberfläche
+     *         in der Entwicklungsumgebung gestartet werden kann. Dieser Parameter ist auch erforderlich, damit die
+     *         automatisierte Auswertung der Ergebnisse funktioniert.
      */
     public static void main(final String... unused) {
-        moveToOriginalPosition();
-
         int leaves = count();
 
         say("Leaves: " + leaves);
-    }
-
-    private static void moveToOriginalPosition() {
-        turnLeft();
-        moveToTree();
-        turnLeft();
-        moveToTree();
-        turnLeft();
     }
 
     private static int count() {
         int leaves = 0;
 
         for (;;) {
+            turnRight();
             leaves += countLeavesInLine();
 
-            moveAround();
-            moveToTree();
+            turnAround();
+            leaves += moveToTree();
             turnRight();
             if (isTreeInFront()) {
                 return leaves;
             }
             move();
-            turnRight();
         }
     }
 
-    private static void moveAround() {
+    private static void turnAround() {
         turnLeft();
         turnLeft();
     }
@@ -74,7 +64,12 @@ public class Assignment2Count {
     private static int countLeavesInLine() {
         int leaves = isOnLeaf() ? 1 : 0;
         while (!isTreeInFront()) {
-            move();
+            if (isMushroomInFront()) {
+                walkAroundMushroom();
+            }
+            else {
+                move();
+            }
             if (isOnLeaf()) {
                 leaves++;
             }
@@ -82,9 +77,32 @@ public class Assignment2Count {
         return leaves;
     }
 
-    private static void moveToTree() {
+    private static void walkAroundMushroom() {
+        turnLeft();
+        move();
+        turnRight();
+        move();
+        move();
+        turnRight();
+        move();
+        turnLeft();
+    }
+
+    private static int moveToTree() {
+        int leaves = 0;
         while (!isTreeInFront()) {
-            move();
+            if (isMushroomInFront()) {
+                walkAroundMushroom();
+                turnAround();
+                move();
+                leaves = isOnLeaf() ? 1 : 0;
+                turnAround();
+                move();
+            }
+            else {
+                move();
+            }
         }
+        return leaves;
     }
 }
