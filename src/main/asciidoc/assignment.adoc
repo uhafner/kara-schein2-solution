@@ -1,4 +1,4 @@
-= Elektronische Prüfung zum Erwerb des Leistungsnachweises - Softwareentwicklung I
+= Prüfung Leistungsnachweises - Softwareentwicklung I
 :icons: font
 Prof. Dr. Ullrich Hafner <ullrich.hafner@hm.edu>
 :toc-title: Inhaltsverzeichnis
@@ -24,6 +24,10 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
+== Allgemeine Hinweise bzw. Tipps
+
+Laden Sie Ihre Lösung erst am Ende der Prüfung in den GitHub Classroom https://classroom.github.com/a/xtJ-nWyN auf den eigenen `main` Branch hoch. Wenn beim abschließendem Hochladen ein Fehler auftritt, warten Sie bitte, bis ich an Ihren Platz komme, um das Hochladen gemeinsam durchzuführen. Verlassen Sie nicht den Raum, bevor Ihre Lösung auch sicher in GitHub angekommen ist.
+
 == 1. Malen eines Rechtecks - Assignment1Draw
 
 Damit der Start leichter fällt, ist die Aufgabe in Teilschritte aufgeteilt, die im selben Programm umgesetzt werden sollen. Starten Sie mit der Aufgabenstellung zu Aufgabe 1a und verbessern Sie dann Ihren Code schrittweise so, dass er auch die Randfälle der weiteren Aufgaben erfüllt werden. Je nach Geschick kann die Lösung der weiteren Teilaufgaben bereits funktionieren, ohne dass Sie speziell nacharbeiten müssen. Die bereitgestellten Testfälle gelten jedenfalls für alle Teilaufgaben. Alle Aufgabenteile werden innerhalb derselben Java Datei bearbeitet.
@@ -35,18 +39,18 @@ Schreiben Sie ein Programm für Kara, das in einer beliebig großen leeren Welt 
 In den folgenden Bildern sehen Sie einige Rechtecke, die Ihr Programm malen soll. In den zur Verfügung gestellten Tests gibt es weitere Beispiele, die Sie überprüfen können.
 
 .Male Rechtecke - Links: Ecke (0,0) Größe 4x6 - Mitte: Ecke (0,1) Größe 4x5 - Rechts: Ecke (1,0) Größe 3x3
-image:images/M-0-0-4-6.png[Ausgangssituation, width=30%, pdfwidth=30%]
-image:images/M-0-1-4-5.png[Ausgangssituation, width=30%, pdfwidth=30%]
-image:images/M-1-0-3-3.png[Ausgangssituation, width=30%, pdfwidth=30%]
+image:images/M-0-0-4-6.png[Ausgangssituation, width=25%, pdfwidth=25%]
+image:images/M-0-1-4-5.png[Ausgangssituation, width=25%, pdfwidth=25%]
+image:images/M-1-0-3-3.png[Ausgangssituation, width=25%, pdfwidth=25%]
 
 === 1b. Malen eines degenerierten Rechtecks
 
 Höhe und Breite eines Rechtecks können so klein sein, dass das Bild kein nicht ausgefülltes Rechteck mehr ergibt. Das Programm soll aber dennoch eine Ausgabe erzeugen. Das heißt, wenn die Höhe oder die Breite 1 ist, dann ergibt sich eine horizontale oder vertikale Linie. Sind Höhe und Breite beide 1, dann ergibt sich sogar nur ein Punkt. Im Fall von Höhe und Breite 2 ergibt sich ein ausgefülltes Rechteck. Berücksichtigen Sie alle diese Sonderfälle in Ihrem Programm. Im Idealfall müssen Sie Ihr Programm dazu nicht oder kaum anpassen.
 
 .Male Rechtecke - Links: Ecke (0,5) Größe 4x1 - Mitte: Ecke (3,0) Größe 1x6 - Rechts: Ecke (2,3) Größe 1x1
-image:images/D-0-5-4-1.png[Ausgangssituation, width=30%, pdfwidth=30%]
-image:images/D-3-0-1-6.png[Ausgangssituation, width=30%, pdfwidth=30%]
-image:images/D-2-3-1-1.png[Ausgangssituation, width=30%, pdfwidth=30%]
+image:images/D-0-5-4-1.png[Ausgangssituation, width=25%, pdfwidth=20%]
+image:images/D-3-0-1-6.png[Ausgangssituation, width=25%, pdfwidth=20%]
+image:images/D-2-3-1-1.png[Ausgangssituation, width=25%, pdfwidth=20%]
 
 === 1c. Ignorieren von ungültigen Eingaben
 
@@ -57,8 +61,8 @@ Werden als Startpunkt Koordinaten außerhalb der Welt gewählt, soll Kara gar ni
 Sollte das zu malende Rechteck nicht ganz in Karas Welt passen (d.h., es ist zu breit oder lang), dann soll nur der sichtbare Bereich gemalt werden. Die restlichen Punkte, die außerhalb der Welt liegen, sollen nicht angezeigt werden. (Diese Punkte dürfen auch nicht auf der anderen Seite dargestellt werden, d.h. die typische Kara Funktionalität, dass Kara auf der jeweils gegenüberliegenden Seite wieder erscheint, wird nicht angewendet). Damit ergibt sich jeweils ein Rechteck mit einer oder zwei offenen Seiten.
 
 .Male Rechtecke - Links: Ecke (3,1) Größe 10x10 - Rechts: Ecke (4,5) Größe 3x5
-image:images/L-3-1-10-10.png[Ausgangssituation, width=45%, pdfwidth=30%]
-image:images/L-4-5-3-5.png[Ausgangssituation, width=45%, pdfwidth=30%]
+image:images/L-3-1-10-10.png[Ausgangssituation, width=45%, pdfwidth=40%]
+image:images/L-4-5-3-5.png[Ausgangssituation, width=45%, pdfwidth=40%]
 
 == 2. Finden aller Blätter - Assignment2Count
 
@@ -69,9 +73,9 @@ Damit der Start leichter fällt, ist die Aufgabe in Teilschritte aufgeteilt, die
 Kara soll in einer von Bäumen umzäunten Welt alle Blätter finden und die Summe der gefundenen Blätter ausgeben. Die Welt ist beliebig groß, der Zaun am Rand ist komplett mit Bäumen besetzt. Innerhalb der Welt können an jeder Stelle Blätter vorhanden sein. Die Welt enthält keine Pilze oder Bäume innerhalb der Umzäunung.
 
 .Zähle Kleeblätter - Links: Eins - Mitte: Fünf - Rechts: Acht
-image:images/Count-M-1.png[Ausgangssituation, width=30%, pdfwidth=30%]
-image:images/Count-M-5.png[Ausgangssituation, width=30%, pdfwidth=30%]
-image:images/Count-M-8.png[Ausgangssituation, width=30%, pdfwidth=30%]
+image:images/Count-M-1.png[Ausgangssituation, width=25%, pdfwidth=25%]
+image:images/Count-M-5.png[Ausgangssituation, width=25%, pdfwidth=25%]
+image:images/Count-M-8.png[Ausgangssituation, width=25%, pdfwidth=25%]
 
 .Zähle Kleeblätter - Links: 4 - Rechts: 20
 image:images/Count-L-4.png[Ausgangssituation, width=45%, pdfwidth=45%]
