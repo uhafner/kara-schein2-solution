@@ -3,7 +3,7 @@ name: 'Tests Aufgabe 2'
 on:
   push:
     branches:
-      - main
+      - grading
   pull_request:
 
 jobs:
@@ -41,7 +41,7 @@ jobs:
                     "pattern": "**/checkstyle-result.xml"
                   }
                 ],
-                "fileFilter": "Assignment2Digits.java",
+                "fileFilter": "Assignment2Count.java",
                 "maxScore": 10,
                 "errorImpact": -1,
                 "highImpact": -1,

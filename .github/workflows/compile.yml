@@ -3,7 +3,7 @@ name: 'Compile the sources'
 on:
   push:
     branches:
-      - main
+      - grading
   pull_request:
 
 jobs:
